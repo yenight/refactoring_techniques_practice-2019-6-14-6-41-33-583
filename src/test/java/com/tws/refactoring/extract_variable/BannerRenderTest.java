@@ -26,4 +26,24 @@ public class BannerRenderTest {
         assertEquals("banner", result);
     }
 
+    @Test
+    public void should_return_IE_on_Mac_when_platform_is_Mac_and_browser_is_FireFox() {
+        //given
+        BannerRender bannerRender = new BannerRender();
+        //when
+        String result = bannerRender.renderBanner("Mac", "FireFox");
+        //then
+        assertEquals("banner", result);
+    }
+
+    @Test
+    public void should_return_IE_on_Mac_when_platform_is_Window_and_browser_is_IE() {
+        //given
+        BannerRender bannerRender = new BannerRender();
+        //when
+        String result = bannerRender.renderBanner("window", "IE");
+        //then
+        assertEquals("banner", result);
+    }
+
 }
