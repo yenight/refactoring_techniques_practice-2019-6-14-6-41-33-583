@@ -38,4 +38,26 @@ public class PriceCalculatorTest {
         //then
         assertEquals(expectedResult, result, 0.0);
     }
+
+    @Test
+    public void should_return_price_when_quantity_is_100_and_itemPrice_is_10() {
+        //given
+        PriceCalculator priceCalculator = new PriceCalculator();
+        //when
+        double result = priceCalculator.getPrice(100, 10);
+        double expectedResult = 1100;
+        //then
+        assertEquals(expectedResult, result, 0.0);
+    }
+
+    @Test
+    public void should_return_price_when_quantity_is_99_and_itemPrice_is_10() {
+        //given
+        PriceCalculator priceCalculator = new PriceCalculator();
+        //when
+        double result = priceCalculator.getPrice(99, 10);
+        double expectedResult = 1089.0;
+        //then
+        assertEquals(expectedResult, result, 0.0);
+    }
 }
