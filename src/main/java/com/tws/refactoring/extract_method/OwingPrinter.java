@@ -11,19 +11,32 @@ public class OwingPrinter {
         double outstanding = 0.0;
 
         // print banner
-        System.out.println ("*****************************");
-        System.out.println ("****** Customer totals ******");
-        System.out.println ("*****************************");
+        printBanner();
 
         // print owings
+        outstanding = getOutstanding(elements, outstanding);
+
+        // print details
+        printDetails(name, outstanding);
+    }
+
+    private void printDetails(String name, double outstanding) {
+        System.out.println("name: " + name);
+        System.out.println("amount: " + outstanding);
+    }
+
+    private double getOutstanding(Iterator<Order> elements, double outstanding) {
         while (elements.hasNext()) {
             Order each = (Order) elements.next();
             outstanding += each.getAmount();
         }
+        return outstanding;
+    }
 
-        // print details
-        System.out.println("name: " + name);
-        System.out.println("amount: " + outstanding);
+    private void printBanner() {
+        System.out.println ("*****************************");
+        System.out.println ("****** Customer totals ******");
+        System.out.println ("*****************************");
     }
 }
 
